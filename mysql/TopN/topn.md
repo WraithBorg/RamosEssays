@@ -17,57 +17,52 @@ CREATE TABLE `x_student` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3002 DEFAULT CHARSET=utf8
 ```
 #### 方案一 利用子查询方式
+利用diff对比查询结果
 ```
-SELECT
-	stu.id,stu.name,stu.grade,stu.score
-FROM
-	`x_student` stu
-WHERE
-	(
-		SELECT
-			COUNT(*)
-		FROM
-			`x_student` u
-		WHERE
-			u.grade = stu.grade
-		AND stu.score < u.score
-	) <3
-ORDER BY
-	stu.grade,
-	stu.score DESC ,
-	stu.id DESC
-;
+SELECT stu.id,
+       stu.name,
+       stu.grade,
+       stu.score
+FROM `x_student` stu
+WHERE (
+          SELECT count(*)
+          FROM (SELECT u.score
+                FROM `x_student` u
+                WHERE u.grade = stu.grade
+                  AND stu.score < u.score
+                GROUP BY u.score) a
+      ) < 2
+ORDER BY stu.grade,
+         stu.score DESC,
+         stu.id DESC;
+
 ```
 #### 方案二 利用用户自定义变量
 ```
-select stu.id,stu.name,stu.grade,stu.score from 
-(select a.*,
-@rankid := if(@subj = grade,@rankid + 1, 1) rankid,
-@tmprank := if(@subj = grade and @score = a.score,@tmprank,@rankid) tmprank,
-@subj := a.grade subj ,
-@score := a.score scor
-from x_student a,
-(select @subj = '',@rankid = 0,@score = 0,@tmprank = 0) r 
-order by grade,score desc) stu where stu.tmprank <4
-order by stu.grade,stu.score desc,stu.id DESC;
+SELECT stu.id, stu.name, stu.grade, stu.score, stu.topnum
+FROM (SELECT a.*,
+             @topnum := if(@subj = grade, if(a.score < @score, @topnum + 1, @topnum), 1) topnum,
+             @subj := a.grade                                                            subj,
+             @score := a.score                                                           scor
+      FROM x_student a,
+           (SELECT @subj = '', @score = 0, @topnum = 0) r
+      ORDER BY grade, score DESC) stu
+WHERE stu.topnum < 3
+ORDER BY stu.grade, stu.score DESC, stu.id DESC;
+
 ```
 #### 方案三 利用窗口函数
 ```
-SELECT
-	stu.id,stu.name,stu.grade,stu.score
-FROM
-	(
-		SELECT
-			*, rank () over (
-				PARTITION BY grade
-				ORDER BY
-					score DESC
-			) AS ranking
-		FROM
-			x_student
-	) stu
-WHERE
-	ranking < 4 order by stu.grade,stu.score desc,stu.id DESC;;
+SELECT t.id,t.name,t.score,t.grade
+FROM (
+         SELECT dense_rank() OVER (PARTITION BY grade ORDER BY score DESC ) AS row_num,
+                id,
+                name,
+                grade,
+                score
+         FROM x_student
+     ) t
+WHERE t.row_num <= 2 ORDER BY t.grade,t.score DESC ,t.id DESC;
 ```
 
 ### 查询分析

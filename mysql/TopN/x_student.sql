@@ -1,17 +1,4 @@
-/*
-Navicat MySQL Data Transfer
 
-Source Server         : 腾讯云
-Source Server Version : 80021
-Source Host           : 172.81.239.76:3306
-Source Database       : test4olnp
-
-Target Server Type    : MYSQL
-Target Server Version : 80021
-File Encoding         : 65001
-
-Date: 2020-10-29 10:01:03
-*/
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -23,7 +10,9 @@ CREATE TABLE `x_student` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '姓名',
   `grade` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '班级',
-  `score` int DEFAULT NULL COMMENT '分数',
+  `score` int DEFAULT NULL COMMENT '分数',`
+`
+      
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3002 DEFAULT CHARSET=utf8;
 
