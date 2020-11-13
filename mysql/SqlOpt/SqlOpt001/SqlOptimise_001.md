@@ -3,7 +3,7 @@
 Mysql5.7 (只能是5.7版本)
 
 #### 准备数据
-* [测试数据右键下载](SqlOptimise_01_test_data.sql)
+* [测试数据右键下载](SqlOptimise_001_test_data.sql)
 
 #### 执行sql，发现查询速度较慢
 ```
@@ -27,5 +27,5 @@ LIMIT 0,
 希望优化后，查询时间控制在0.05s以内
 
 #### 答案
-* [答案](SqlOptimise_01_answer.md)
+* [答案](SqlOptimise_001_answer.md)
 
