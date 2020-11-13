@@ -159,7 +159,7 @@ public class NewBillConverter {
 }
 ```
 #### HsmBFuncUtils
-``` java**
+``` java
 /**
  * 自定义单据属性装配器
  */
