@@ -19,7 +19,9 @@ ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test
 ```
 @mysql 命令
 show variables like '%datadir%';
-copy "C:\ProgramData\MySQL\MySQL Server 5.7\Data\a_share\storebill4test.ibd" "C:\databasebak\a_share\"
+flush tables a_share.storebill4test for     export; -- 会加写锁，但没有读锁
+copy "C:\ProgramData\MySQL\MySQL Server 5.7\Data\a_share\storebill4test.cfg" "C:\databasebak\a_share\" & copy "C:\ProgramData\MySQL\MySQL Server 5.7\Data\a_share\storebill4test.ibd" "C:\databasebak\a_share\"
+unlock tables;
 ```
 ### 根据需要还原数据到新数据库 newdb
 1: 创建新数据库newdb,并复制表结构和删除表空间
@@ -34,7 +36,7 @@ alter table  newdb.storebill4test discard tablespace;
 2: 表空间文件传输
 ```
 @windows 命令
-copy "C:\databasebak\a_share\storebill4test.ibd" "C:\ProgramData\MySQL\MySQL Server 5.7\Data\newdb\"
+copy "C:\databasebak\a_share\storebill4test.cfg" "C:\ProgramData\MySQL\MySQL Server 5.7\Data\newdb\" & copy "C:\databasebak\a_share\storebill4test.ibd" "C:\ProgramData\MySQL\MySQL Server 5.7\Data\newdb\"
 ```
 3: 根据需要将历史表的数据进行还原
 ```
