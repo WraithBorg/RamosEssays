@@ -16,3 +16,4 @@
     * [表空间和数据转储](mysql/BackUp/TableSpaceBackUp.md)
 * [web](README.md)
     * [浏览器机制解析](web/browser.md)
+* [艾宾浩斯](memory/Ebbinghaus.md)
