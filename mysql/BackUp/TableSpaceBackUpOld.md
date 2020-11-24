@@ -8,12 +8,12 @@ SELECT COUNT(*) FROM `storebill4part`; -- 1916861条
 drop table if EXISTS storebill4bak;
 CREATE TABLE storebill4bak LIKE `storebill4part`;
 ALTER  TABLE storebill4bak REMOVE PARTITIONING;
-ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test;
+ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test; -- 将分区表数据转储到备份表 耗时0.01s
 SELECT COUNT(*) FROM storebill4test; -- 71w条数据
 SELECT COUNT(*) FROM storebill4part; -- 120w条数据
 
 -- 如果将历史表的数据还原到当前表，只需要再次执行
-ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test; -- 耗时9s
+ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test; -- 如果将备份表数据转储到分区表会耗时9s
 ```
 ### 将历史表的数据进行表空间备份，数据备份目录 C:\databasebak
 ```

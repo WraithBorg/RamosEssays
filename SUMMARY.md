@@ -8,6 +8,7 @@
     * [spi机制](java/CodeOpt/Spi/spi.md)
     * [运行Java注释里的代码](java/CodeOpt/RunAnnotation/runanno.md)
     * [快速定位JPA BUG](java/Bug/FindJpaBug.md)
+    * [检索不规范的catch代码块](java/Bug/SearchInvalidCatch.md)
 * [Mysql札记](README.md)
     * [Sql优化01](mysql/SqlOpt/SqlOpt001/SqlOptimise_001.md)
     * [Sql优化01答案](mysql/SqlOpt/SqlOpt001/SqlOptimise_001_answer.md)
