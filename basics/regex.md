@@ -31,5 +31,9 @@ System.out.println(new BigDecimal(0.01));
 finally.*\{\n.*return
 ```
 
+#### 查找所有捕获异常但是没有输出异常日志的代码块
+```
+JAVA笔记->检索不规范的catch代码块
+```
 
 
