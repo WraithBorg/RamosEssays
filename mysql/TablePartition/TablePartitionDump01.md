@@ -1,4 +1,5 @@
 # 表分区转储
+`Author:zxu`  
 业务需求,将storebill4partb表某个月的数据转储到历史表(storebill4test)。  
 实现方式有两种，对比下表分区置换和insert select的速度  
 1：`insert into storebill4test select * from storebill4part where ...

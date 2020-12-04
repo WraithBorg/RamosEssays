@@ -1,5 +1,5 @@
 # 技术点总结
-
+`Author:zxu`  
 #### 启动方式
 1: 本机安装gitbook  
 `npm install gitbook-cli -g`  

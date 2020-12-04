@@ -1,4 +1,5 @@
 ## 编辑器常用正则
+`Author:zxu`
 #### 删除所有多余空行
 ```regexp
 # notepad

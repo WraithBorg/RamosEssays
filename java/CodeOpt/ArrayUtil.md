@@ -1,4 +1,5 @@
 ## 将数组根据MAX_SEND分割成多个小数组
+`Author:zxu`  
 ```java
 package com.fx.share.aaaa;
 

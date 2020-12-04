@@ -1,4 +1,5 @@
 # 分布式锁的实现
+`Author:zxu`  
 > 利用redis实现全局锁，利用try-with-resource简化了加锁解锁的操作
 
 ## 代码简介
@@ -60,6 +61,7 @@ public class SprLock implements AutoCloseable {
  */
 public class RedisUtils {
     public static boolean put(String billId, String s) {
+    // TODO redis setnx
         return false;
     }
     public static void remove(String billId) {

@@ -1,9 +1,10 @@
 # 运行Java注释里的代码
+`Author:zxu`  
 ```java
 class Test{
     public static void main(String[] args) {
         String name = "空大";
-        // \u000dname+="爱牛仔";
+        // \u000dname+="牛仔";
         System.out.println(name);
     }
     // 因为通过允许 Java 源代码包含 Unicode 字符，可以确保在世界上任何一个区域编写的代码在其他地方执行。\u000d是换行符
