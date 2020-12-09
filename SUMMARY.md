@@ -10,6 +10,7 @@
     * [快速定位JPA BUG](java/Bug/FindJpaBug.md)
     * [检索不规范的catch代码块](java/Bug/SearchInvalidCatch.md)
     * [数组拆分实现](java/CodeOpt/ArrayUtil.md)
+    * [RequestContextHolder应用](java/spring/RequestContextHolder.md)
 * [Mysql札记](README.md)
     * [Sql优化01](mysql/SqlOpt/SqlOpt001/SqlOptimise_001.md)
     * [Sql优化01答案](mysql/SqlOpt/SqlOpt001/SqlOptimise_001_answer.md)
@@ -22,3 +23,4 @@
     * [用jstack排查死锁](fault/jstackdeadlock.md)
     * [排查CPU使用率过高](fault/jstackusage.md)
 * [艾宾浩斯](memory/Ebbinghaus.md)
+
