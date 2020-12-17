@@ -1,4 +1,5 @@
 # RequestContextHolder解析
+`Author:zxu`  
 #### 应用场景
 在mvc场景下,希望在request请求内 实现类似ThreadLocal机制去存取数据,但是又不能使用ThreadLocal,因为httpRequest线程池会复用request线程    
 会导致再一次request请求里会获取到上一次request内的TheadLocal变量,比如每次request请求操作,都会存一个ThreadLocal变量A,  
