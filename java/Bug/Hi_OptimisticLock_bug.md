@@ -42,6 +42,6 @@
         }
     }
 ```
-经分析得知,多人操作的情况下,第一个人获取到redis锁后进行业务操作,此时第二个人也进入这个方法,但是由于并发控制,
-        所以抛异常进入catch了,这时候第二个人会把billStatus删掉,此时第一个人业务操作完毕,提交事务,update更新billStatus,
-        但是billStatus已经不存在了,就抛异常HibernateOptimisticLockingFailureException了
+经分析得知,多人操作的情况下,第一个人获取到redis锁后进行业务操作,此时第二个人也进入这个方法,但是由于并发控制,    
+所以抛异常进入catch了,这时候第二个人会把billStatus删掉,此时第一个人业务操作完毕,提交事务,update更新billStatus,   
+但是billStatus已经不存在了,就抛异常HibernateOptimisticLockingFailureException了   
