@@ -6,7 +6,7 @@ public class JSON_BUG {
         Long idValue = 3000L;
         Map<String, Object> data = new HashMap<>(2);
         data.put("id", idValue);
-        data.put("name", "捡田螺的小男孩");
+        data.put("name", "小A");
 
         System.out.println(idValue ==  data.get("id"));//输出： true
         String jsonString = JSON.toJSONString(data);
