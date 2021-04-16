@@ -42,6 +42,7 @@
     * [CPU缓存行的作用](java/CodeOpt/falsesharing/CacheLine.md)
     * [伪共享缓存和解决办法](java/CodeOpt/falsesharing/falsesharing.md)
     * [通用对象构造器](java/CodeOpt/ObjectBuilder/ObjectBuilder.md)
+    * [添加响应中断的定时任务](java/CodeOpt/scheduler/scheduler.md)
 * [Mysql札记](README.md)
     * [Sql优化01](mysql/SqlOpt/SqlOpt001/SqlOptimise_001.md)
     * [Sql优化01答案](mysql/SqlOpt/SqlOpt001/SqlOptimise_001_answer.md)
