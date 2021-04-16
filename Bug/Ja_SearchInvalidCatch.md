@@ -1,9 +1,9 @@
 # 检索不规范的catch代码块
 `Author:zxu`  
 **使用场景:**
-> 当发生空指针异常时，后端没有输出异常信息，而直接将e.getMessage返回给前端  
-  这样，前端无法显示异常信息，后端日志也找不到异常信息  
-  所以会造成无法定位代码异常的情况，导致线上程序难以维护  
+> 当发生空指针异常时,后端没有输出异常信息,而直接将e.getMessage返回给前端  
+  这样,前端无法显示异常信息,后端日志也找不到异常信息  
+  所以会造成无法定位代码异常的情况,导致线上程序难以维护  
 
 #### 代码示例
 ```java
@@ -17,11 +17,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
- * 使用场景:当发生空指针异常时，后端没有输出异常信息，而直接将e.getMessage返回给前端
- * 这样，前端无法显示异常信息，后端日志也找不到异常信息
- * 所以会造成无法定位代码异常的情况，导致线上程序难以维护
+ * 使用场景:当发生空指针异常时,后端没有输出异常信息,而直接将e.getMessage返回给前端
+ * 这样,前端无法显示异常信息,后端日志也找不到异常信息
+ * 所以会造成无法定位代码异常的情况,导致线上程序难以维护
  * <p>
- * 此工具就是为了查找上述情况而设计，下面代码是一个错误示例
+ * 此工具就是为了查找上述情况而设计,下面代码是一个错误示例
  */
 public class SearchInvalidCatch {
     private static AtomicInteger atomicInteger = new AtomicInteger();
@@ -34,11 +34,11 @@ public class SearchInvalidCatch {
         System.out.println("共检索不规范代码:" + atomicInteger.get() + "处");
     }
     /**
-     * 使用场景:当发生空指针异常时，后端没有输出异常信息，而直接将e.getMessage返回给前端
-     * 这样，前端无法显示异常信息，后端日志也找不到异常信息
-     * 所以会造成无法定位代码异常的情况，导致线上程序难以维护
+     * 使用场景:当发生空指针异常时,后端没有输出异常信息,而直接将e.getMessage返回给前端
+     * 这样,前端无法显示异常信息,后端日志也找不到异常信息
+     * 所以会造成无法定位代码异常的情况,导致线上程序难以维护
      * <p>
-     * 此工具就是为了查找上述情况而设计，下面代码是一个错误示例
+     * 此工具就是为了查找上述情况而设计,下面代码是一个错误示例
      */
     private static Map applicableScope() {
         Map<String, Object> map = new HashMap<>();

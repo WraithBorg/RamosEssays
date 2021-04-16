@@ -12,7 +12,7 @@
 ```
 
 ## 利用正则查找不规范代码
-####  查找没有规定小数精度的divide方法，避免小数除不尽的bug	(发现两处)	 
+####  查找没有规定小数精度的divide方法,避免小数除不尽的bug	(发现两处)	 
 ```regexp
 // Regex divide\(.+\..+\(\)\)  
 × tPrice=sdt.x().divide(sdt.x()).setScale(4, BigDecimal.ROUND_HALF_UP);

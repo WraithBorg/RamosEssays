@@ -1,6 +1,6 @@
 # 分布式锁的实现
 `Author:zxu`  
-> 利用redis实现全局锁，利用try-with-resource简化了加锁解锁的操作
+> 利用redis实现全局锁,利用try-with-resource简化了加锁解锁的操作
 
 ## 代码简介
 #### 全局锁应用
@@ -39,7 +39,7 @@ public class SprLock implements AutoCloseable {
                 if (RedisUtils.put(billId, LoginUserBean.getUserName())) {
                     lockedBillIds.add(billId);
                 } else {
-                    throw new RuntimeException(RedisUtils.get(billId) + " 正在操作该订单，请稍后重试!");
+                    throw new RuntimeException(RedisUtils.get(billId) + " 正在操作该订单,请稍后重试!");
                 }
             }
         }

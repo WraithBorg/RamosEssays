@@ -3,7 +3,7 @@
 > 探究log4j和logback加载机制
 #### 测试代码
 ```java
-// 新建 META-INF/services/com.spi.LoggerService文件，内容为com.spi.LogbackServiceImpl
+// 新建 META-INF/services/com.spi.LoggerService文件,内容为com.spi.LogbackServiceImpl
 public class SpiTest {
     public static void main(String[] args) {
         ServiceLoader<LoggerService> loaders = ServiceLoader.load(LoggerService.class);

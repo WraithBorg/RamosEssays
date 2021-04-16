@@ -2,7 +2,7 @@
 `Author:zxu`  
 > storebill4part表中有约191w条数据,希望将一月份的数据（约70w条）移到历史表或者进行备份
 
-### 将分区表的数据转移到历史表，缩减当前表体积
+### 将分区表的数据转移到历史表,缩减当前表体积
 ```
 @mysql 命令
 SELECT COUNT(*) FROM `storebill4part`; -- 1916861条
@@ -13,14 +13,14 @@ ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test
 SELECT COUNT(*) FROM storebill4test; -- 71w条数据
 SELECT COUNT(*) FROM storebill4part; -- 120w条数据
 
--- 如果将历史表的数据还原到当前表，只需要再次执行
+-- 如果将历史表的数据还原到当前表,只需要再次执行
 ALTER  TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test; -- 如果将备份表数据转储到分区表会耗时9s
 ```
-### 将历史表的数据进行表空间备份，数据备份目录 C:\databasebak
+### 将历史表的数据进行表空间备份,数据备份目录 C:\databasebak
 ```
 @mysql 命令
 show variables like '%datadir%';
-flush tables a_share.storebill4test for     export; -- 会加写锁，但没有读锁
+flush tables a_share.storebill4test for     export; -- 会加写锁,但没有读锁
 copy "C:\ProgramData\MySQL\MySQL Server 5.7\Data\a_share\storebill4test.cfg" "C:\databasebak\a_share\" & copy "C:\ProgramData\MySQL\MySQL Server 5.7\Data\a_share\storebill4test.ibd" "C:\databasebak\a_share\"
 unlock tables;
 ```
@@ -74,7 +74,7 @@ insert into storebill4bak3 select * from storebill4test; -- 执行时间75s
 ```
 
 #### 方案一为什么比方案二快那么多
-方案一复制表的时候没有复制索引信息，方案二复制了索引信息
+方案一复制表的时候没有复制索引信息,方案二复制了索引信息
 
 
 

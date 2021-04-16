@@ -28,12 +28,12 @@ BillDTServiceImpl --> b = billDao.update(b);//内存地址AAA
 
 ```
 #### 结果分析  
-当Hibernate查出对象AAA并放到持久化缓存后，如果进行session.clear操作后，在查询该对象的话，会重新从数据库查出一个新对象，所以内存地址发生变化  
-这时候AAA不再是持久化对象，已经被BBB代替，如果后续还有对AAA操作的代码，那么就会抛出异常`a different object with the same identifier value was already associated with the session
+当Hibernate查出对象AAA并放到持久化缓存后,如果进行session.clear操作后,在查询该对象的话,会重新从数据库查出一个新对象,所以内存地址发生变化  
+这时候AAA不再是持久化对象,已经被BBB代替,如果后续还有对AAA操作的代码,那么就会抛出异常`a different object with the same identifier value was already associated with the session
 `      
 
 #### 解决办法
-`billDao.get(billId);`之后添加`billDao.evict(billDB);`这样BBB不再属于持久化对象，当后面继续对AAA进行持久化操作时，Hibernate则会将AAA关联到持久化缓存中，持久化缓存只有一个单据对象，不会发生异常信息
+`billDao.get(billId);`之后添加`billDao.evict(billDB);`这样BBB不再属于持久化对象,当后面继续对AAA进行持久化操作时,Hibernate则会将AAA关联到持久化缓存中,持久化缓存只有一个单据对象,不会发生异常信息
 
 
 

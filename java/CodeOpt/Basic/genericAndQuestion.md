@@ -10,12 +10,12 @@
 ```
 /**
  * ？无界通配符
- * 不确定或者不关心实际要操作的类型,可以使用无限制通配符（尖括号里一个问号,即 <?> ）,表示可以持有任何类型。
+ * 不确定或者不关心实际要操作的类型,可以使用无限制通配符（尖括号里一个问号,即 <?> ）,表示可以持有任何类型.
  * 像 eat 方法中,限定了上届,但是不关心具体类型是什么,
  * 所以对于传入的 Animal 的所有子类都可以支持,并且不会报错
  * 
  * 上界通配符 < ? extends E>
- * 上界用 extends 关键字声明,表示参数化的类型可能是所指定的类型,或者是此类型的子类。
+ * 上界用 extends 关键字声明,表示参数化的类型可能是所指定的类型,或者是此类型的子类.
  */
 public class TestAni {
     public static void main(String[] args) {
@@ -101,7 +101,7 @@ public class TestAni{
     public static void main(String[] args) throws Exception {
         // 上面方法如果反射类型不是Animal一定会报ClassCastException异常
         Animal animal = (Animal)Class.forName("com.fx.share.a1212.TestAni.Animal").newInstance();
-        // 使用下面的代码来代替，使得在在编译期就能直接 检查到类型的问题
+        // 使用下面的代码来代替,使得在在编译期就能直接 检查到类型的问题
         Animal animal01 = createInstance01(Animal.class);
 //        Male animal02 = createInstance01(Animal.class);//编译器提示异常
     }
@@ -116,7 +116,7 @@ public class TestAni{
 public class TestAni{
     // 可以
     public Class<?> clazz;
-    // 不可以，因为 T 需要指定类型
+    // 不可以,因为 T 需要指定类型
     public Class<T> clazzT;
 }
 ```

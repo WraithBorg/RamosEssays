@@ -1,7 +1,7 @@
-# 线程池提交过程中，小心异常被吞掉
+# 线程池提交过程中,小心异常被吞掉
 ```java
 /**
- * 线程池提交过程中，小心异常被吞掉
+ * 线程池提交过程中,小心异常被吞掉
  */
 public class FutureException_BUG {
     public static void main(String[] args) {
@@ -28,6 +28,6 @@ public class FutureException_BUG {
 ```
 ### 解决方案
 + 1.在任务代码try/catch捕获异常
-+ 2.通过Future对象的get方法接收抛出的异常，再处理
-+ 3.为工作者线程设置UncaughtExceptionHandler，在uncaughtException方法中处理异常
-+ 4.重写ThreadPoolExecutor的afterExecute方法，处理传递的异常引用
++ 2.通过Future对象的get方法接收抛出的异常,再处理
++ 3.为工作者线程设置UncaughtExceptionHandler,在uncaughtException方法中处理异常
++ 4.重写ThreadPoolExecutor的afterExecute方法,处理传递的异常引用

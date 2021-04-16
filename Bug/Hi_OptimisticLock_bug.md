@@ -12,7 +12,7 @@
                 OrderBill orderBill = orderBillService.get(id);
                 // 更新单据状态为发送中
                 billStatusService.updateBillStatus(billId, BillStatusEnum.SENDING);//根据日志显示此处代码异常
-                // 发送单据，并更新单据状态为已发送
+                // 发送单据,并更新单据状态为已发送
                 orderBillService.sendBill(billId);
                 Log.recordLog("单据发送成功");
             } catch (BusinessException e) {
@@ -21,7 +21,7 @@
                 logger.error("单据发送失败：", e);
                 billStatus = billStatusService.get(billId);
                 if (billStatus != null && !getStatus().equals(BillStatusEnum.SYNCED)) {
-                    billStatusService.delete(s);//如果不是已发送状态，则删除单据状态
+                    billStatusService.delete(s);//如果不是已发送状态,则删除单据状态
                 }
                 Log.recordLog("单据发送失败：" + e.getMessage());
             }
@@ -34,7 +34,7 @@
         public void lock(String id) {
             if (StringUtil.isNotEmpty(id)) {
                 if (RedisLock.put(billId, "") != null) {
-                    throw new BusinessException("其他人正在操作该单据，请重新打开单据!");
+                    throw new BusinessException("其他人正在操作该单据,请重新打开单据!");
                 }
             }else{
                 // TODO

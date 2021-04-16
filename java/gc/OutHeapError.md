@@ -1,11 +1,11 @@
 # JVM堆外内存泄漏故障排查示例
-故障描述:服务收到告警，服务进程占用容器的物理内存（16G）超过了80%的阈值，并且还在不断上升
+故障描述:服务收到告警,服务进程占用容器的物理内存（16G）超过了80%的阈值,并且还在不断上升
 
 #### 查看当前jvm启动参数
 `jinfo -flags {pid}`
 
 #### 堆内存分析
-导出堆内存快照，并用JVisualVM或MAT分析
+导出堆内存快照,并用JVisualVM或MAT分析
 `jmap -dump:live,format=b,file=xxx.hprof {pid}`  
 
 #### 排查第三方框架是否存在内存泄漏
@@ -32,4 +32,4 @@ NMT必须先通过VM启动参数中打开,但是打开NMT会带来5%-10%的性�
 打印类加载信息`jmap -clstats {pid}`
 
 #### 结论
-fastjson的SerializeConfig创建时默认会创建一个ASM代理类用来实现对目标对象的序列化，将SerializeConfig作为类的静态变量，问题解决
+fastjson的SerializeConfig创建时默认会创建一个ASM代理类用来实现对目标对象的序列化,将SerializeConfig作为类的静态变量,问题解决

@@ -15,11 +15,11 @@ top命令查看进程资源占用情况,发现cpu利用率和内存消耗都很�
 -XX:+PrintGCDetails -Xloggc:C:\home\gc.log -XX:+PrintGCTimeStamps
 
 #### jstack
-Java堆栈跟踪工具，可以打印出给定的java进程ID、core file、远程调试服务的Java堆栈信息
+Java堆栈跟踪工具,可以打印出给定的java进程ID、core file、远程调试服务的Java堆栈信息
 jstack -l,打印关于锁的附加信息
 
 
 #### jps命令
-`jps`查看java进程，`jsp -l`查看java进程并输出应用路径
+`jps`查看java进程,`jsp -l`查看java进程并输出应用路径
 
 #### linux 运行java文件

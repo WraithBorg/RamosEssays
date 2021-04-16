@@ -1,11 +1,11 @@
 # 表分区转储
 `Author:zxu`  
-业务需求,将storebill4partb表某个月的数据转储到历史表(storebill4test)。  
-实现方式有两种，对比下表分区置换和insert select的速度  
+业务需求,将storebill4partb表某个月的数据转储到历史表(storebill4test).  
+实现方式有两种,对比下表分区置换和insert select的速度  
 1：`insert into storebill4test select * from storebill4part where ...
 2：表分区置换的方式
 ## 准备数据
-#### 创建分区表，根据日期分区
+#### 创建分区表,根据日期分区
 ```sql
 CREATE TABLE `storebill4part` (
           `id` varchar(32) NOT NULL COMMENT '',
@@ -70,7 +70,7 @@ CREATE TABLE `storebill4part` (
           `importFromWay` int(1) DEFAULT NULL COMMENT '',
           `IsEDIFlag` int(11) DEFAULT '0' COMMENT '',
           `IsEMAILFlag` int(11) DEFAULT '0' COMMENT '',
-          `EmailNo` int(11) DEFAULT '0' COMMENT '。',
+          `EmailNo` int(11) DEFAULT '0' COMMENT '.',
           `sellSumMoney` decimal(20,8) DEFAULT '0.00000000' COMMENT '',
           `printCs` varchar(50) DEFAULT '0',
           `BillDTCountDown` int(11) DEFAULT '0',
@@ -153,18 +153,18 @@ ALTER TABLE storebill4test02 REMOVE PARTITIONING;
 SELECT COUNT(*) FROM storebill4part; -- 共1916861条数据
 SELECT COUNT(*) FROM storebill4part WHERE BusDate < '2020-02-01'; -- 一月份共716860条数据
 
-2： 采用insert...select的方式，将一月份的数据转储到历史表 storebill4test01
+2： 采用insert...select的方式,将一月份的数据转储到历史表 storebill4test01
 INSERT INTO storebill4test01 SELECT * FROM storebill4part WHERE BusDate < '2020-02-01'; -- 耗时超过一分钟
 
-3： 采用表分区置换的方式，将一月份的数据转储到历史表 storebill4test02
+3： 采用表分区置换的方式,将一月份的数据转储到历史表 storebill4test02
 -- 将storebill4part表数据转储到历史表storebill4test02
 ALTER TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test02; -- 耗时0.158s
 select count(*) from storebill4test02; -- 转储了716860条数据 
 -- 将历史表storebill4test02数据转回到storebill4part表
 ALTER TABLE storebill4part EXCHANGE PARTITION p202001 WITH TABLE storebill4test02; -- 耗时9.8s
 ```
-`insert...select`方式可以根据业务需求灵活运用，但是效率极低  
-利用表分区置换的方式转储数据，速度快但是需要前期根据业务设计表分区
+`insert...select`方式可以根据业务需求灵活运用,但是效率极低  
+利用表分区置换的方式转储数据,速度快但是需要前期根据业务设计表分区
 
 #### 附java代码 实现数据库快速复制功能
 ```java

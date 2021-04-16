@@ -23,11 +23,11 @@ public class Reflection_BUG {
     // int grade =60
     // Integer grade =60
     
-    // 如果「不通过反射」，传入Integer.valueOf(100)，走的是Integer重载。     
+    // 如果「不通过反射」,传入Integer.valueOf(100),走的是Integer重载.     
     // int grade =100
     // Integer grade =100
     
-    // 但是呢，反射不是根据入参类型确定方法重载的，而是「以反射获取方法时传入的方法名称和参数类型来确定」的
+    // 但是呢,反射不是根据入参类型确定方法重载的,而是「以反射获取方法时传入的方法名称和参数类型来确定」的
     // int grade =60
     // Integer grade =60
 }

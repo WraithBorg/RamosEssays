@@ -8,8 +8,8 @@ public class ArrayAsListTest {
     /**
      * ArrayList.toArray() 强转的坑
      * <p>
-     * 因为返回的是Object类型，Object类型数组强转String数组，会发生ClassCastException。
-     * 解决方案是，使用toArray()重载方法toArray(T[] a)
+     * 因为返回的是Object类型,Object类型数组强转String数组,会发生ClassCastException.
+     * 解决方案是,使用toArray()重载方法toArray(T[] a)
      */
     private static void testCast() {
         List<String> list = new ArrayList<String>(1);
@@ -22,7 +22,7 @@ public class ArrayAsListTest {
     }
 
     /**
-     * 使用Arrays.asLis的时候，对原始数组的修改会影响到我们获得的那个List
+     * 使用Arrays.asLis的时候,对原始数组的修改会影响到我们获得的那个List
      */
     private static void testModify() {
         String[] arr = {"1", "2", "3"};
@@ -35,8 +35,8 @@ public class ArrayAsListTest {
     /**
      * Arrays.asList 返回的 List 不支持增删操作
      * <p>
-     * Arrays.asList 返回的 List 并不是我们期望的 java.util.ArrayList，而是 Arrays 的内部类 ArrayList。
-     * 内部类的ArrayList没有实现add方法，而是父类的add方法的实现，是会抛出异常的呢。
+     * Arrays.asList 返回的 List 并不是我们期望的 java.util.ArrayList,而是 Arrays 的内部类 ArrayList.
+     * 内部类的ArrayList没有实现add方法,而是父类的add方法的实现,是会抛出异常的呢.
      */
     private static void testAdd() {
         String[] array = {"1", "2", "3"};
@@ -46,7 +46,7 @@ public class ArrayAsListTest {
     }
 
     /**
-     * 基本类型不能作为 Arrays.asList方法的参数，否则会被当做一个参数
+     * 基本类型不能作为 Arrays.asList方法的参数,否则会被当做一个参数
      */
     private static void testSize() {
         int[] array = {1, 2, 3};

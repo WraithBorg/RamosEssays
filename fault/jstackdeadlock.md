@@ -1,7 +1,7 @@
 # 用jstack排查死锁
 `Author:zxu`   
 
-死锁是指两个或两个以上的线程在执行过程中，因争夺资源而造成的一种互相等待的现象  
+死锁是指两个或两个以上的线程在执行过程中,因争夺资源而造成的一种互相等待的现象  
 #### 死锁代码
 ```java
 import java.util.concurrent.locks.Lock;

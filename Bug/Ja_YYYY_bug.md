@@ -20,8 +20,8 @@ public class TestC {
         System.out.println("YYYY-MM-dd = " + df1.format(date));// YYYY-MM-dd = 2021-12-30
         System.out.println("yyyy-MM-dd = " + df2.format(date));// yyyy-MM-dd = 2020-12-30
 
-        //因为YYYY是week-based-year，
-        // 表示：当天所在的周属于的年份，一周从周日开始，周六结束，只要本周跨年，那么这周就算入下一年。
+        //因为YYYY是week-based-year,
+        // 表示：当天所在的周属于的年份,一周从周日开始,周六结束,只要本周跨年,那么这周就算入下一年.
     }
 }
 ```

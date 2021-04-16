@@ -52,7 +52,7 @@ KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999284 avail Mem
  1482 root      20   0  121116   8548   2804 S   2.0  0.1 253:59.94 phdaemon                                            
    10 root      20   0       0      0      0 I   0.3  0.0   6:22.63 rcu_sched   
 ```
-通过top -Hp 19161查看该进程下各个线程的CPU使用情况，发现pid为19176的线程占用最多的CPU资源
+通过top -Hp 19161查看该进程下各个线程的CPU使用情况,发现pid为19176的线程占用最多的CPU资源
 ```
 [root@test test]# top -Hp 19161
 top - 20:23:33 up 9 days,  9:25,  1 user,  load average: 1.04, 0.94, 0.80
@@ -158,8 +158,8 @@ Heap
 [root@test test]# jstack -l 19161 >log.txt
 ```
 #### 定位代码
-将占用CPU资源最多的线程pid转成16进制，19176 -> 4ae8  
-thread dump中，每个线程都有一个nid  
+将占用CPU资源最多的线程pid转成16进制,19176 -> 4ae8  
+thread dump中,每个线程都有一个nid  
 找到4ae8对应的线程  发现一直是RUNNABLE状态,并确定代码位置JstackCase.java:21  
 ```
 "pool-1-thread-1" #9 prio=5 os_prio=0 tid=0x00007f5d800f8000 nid=0x4ae8 runnable [0x00007f5d707f6000]

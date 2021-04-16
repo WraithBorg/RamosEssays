@@ -4,7 +4,7 @@
 2.利用 set key value(用户信息序列化后的信息)  
 3.利用 set key value(用户信息转成的JSON)  
 
-经过更多的数据测试发现 利用RedisTemplate的方式操作redis, 使用存JSON的方式速度最快，存哈希表的方式最慢
+经过更多的数据测试发现 利用RedisTemplate的方式操作redis, 使用存JSON的方式速度最快,存哈希表的方式最慢
 
 ``` java
 
@@ -14,7 +14,7 @@
      * 1.利用 HMSET 和 HGET 哈希表的方式
      * 2.利用 set key value(用户信息序列化后的信息)
      * 3.利用 set key value(用户信息转成的JSON)
-     * + 经过更多的数据测试发现 利用RedisTemplate的方式操作redis, 使用存JSON的方式速度最快，存哈希表的方式最慢
+     * + 经过更多的数据测试发现 利用RedisTemplate的方式操作redis, 使用存JSON的方式速度最快,存哈希表的方式最慢
      */
     @Test
     public void testSaveUserInfoJSON() {
