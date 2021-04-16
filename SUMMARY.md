@@ -43,6 +43,7 @@
     * [伪共享缓存和解决办法](java/CodeOpt/falsesharing/falsesharing.md)
     * [通用对象构造器](java/CodeOpt/ObjectBuilder/ObjectBuilder.md)
     * [添加响应中断的定时任务](java/CodeOpt/scheduler/scheduler.md)
+    * [CompletableFuture不能中断](java/CodeOpt/future/future_bug.md)
 * [Mysql札记](README.md)
     * [Sql优化01](mysql/SqlOpt/SqlOpt001/SqlOptimise_001.md)
     * [Sql优化01答案](mysql/SqlOpt/SqlOpt001/SqlOptimise_001_answer.md)
