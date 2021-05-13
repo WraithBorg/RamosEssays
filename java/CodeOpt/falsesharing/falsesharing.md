@@ -8,7 +8,13 @@
 > Thread,ConcurrentHashMap,Striped64 ,内部均使用过注解:@sun.misc.Contended("x")
 ```java
 /**
- * 利用四个线程分别给数组的四个元素分别赋值,运行上亿次,来比较运行时间
+ * 利用四个线程分别给数组testLongs的四个元素(testLongs[0],testLongs[1],testLongs[2],testLongs[3])分别赋值
+ *      一般情况下,testLongs[0],testLongs[1],testLongs[2],testLongs[3]会加载到同一个CPU Cache Line
+ * 每当线程修改其中一个元素,都会该行CPU Cache Line失效,从而导致其他线程重新从主存中获取该数组,
+ * 而且多个线程同时操作同一缓存行,会发生资源竞争,从而降低读写效率
+ *      如果testLongs[0],testLongs[1],testLongs[2],testLongs[3]分别独占一行CPU Cache Line,
+ * 当线程修改其中一个元素的时候,不会导致其他元素所在的缓存行失效,这样修改数组内任一元素,都不会影响其他数组元素的缓存,
+ * 使得CPU能充分利用缓存进行计算
  */
 public class FalseSharing implements Runnable {
     public final static int NUM_THREADS = 4; // 线程数量4
