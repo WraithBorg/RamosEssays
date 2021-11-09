@@ -5,7 +5,7 @@
  */
 public class SearchTextInFiles {
     static String searchText = "DbNameThread.set("; // 指定搜索内容
-    static String searchdictionary = "C:\\zxu_gitspace\\cldpoint\\src\\com"; //指定搜索目录
+    static String searchdictionary = "C:\\zxu_gitspace\\sprdemo\\src\\com"; //指定搜索目录
     public static void main(String[] args) {
         toDoSearch(searchdictionary);//查找该路径下的代码
     }

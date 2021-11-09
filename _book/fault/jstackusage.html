@@ -1,0 +1,1264 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>排查CPU使用率过高 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../" />
+    
+    
+    <link rel="prev" href="jstackdeadlock.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../basics/regex.html">
+            
+                <a href="../basics/regex.html">
+            
+                    
+                    正则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../basics/term.html">
+            
+                <a href="../basics/term.html">
+            
+                    
+                    术语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../basics/PointerHandle.html">
+            
+                <a href="../basics/PointerHandle.html">
+            
+                    
+                    指针与句柄的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    BUG
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Bug/Hi_FindJpa_bug.html">
+            
+                <a href="../Bug/Hi_FindJpa_bug.html">
+            
+                    
+                    Hibernate 快速定位 BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Bug/Hi_NonUniqueObjectException.html">
+            
+                <a href="../Bug/Hi_NonUniqueObjectException.html">
+            
+                    
+                    Hibernate NonUniqueObjectException
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Bug/Hi_OptimisticLock_bug.html">
+            
+                <a href="../Bug/Hi_OptimisticLock_bug.html">
+            
+                    
+                    Hibernate OptimisticLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Bug/Ja_ArrayAsList_bug.html">
+            
+                <a href="../Bug/Ja_ArrayAsList_bug.html">
+            
+                    
+                    JAVA Arrays.asList常见BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Bug/Ja_Common_bug.html">
+            
+                <a href="../Bug/Ja_Common_bug.html">
+            
+                    
+                    JAVA 常见BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../Bug/Ja_Finally_bug.html">
+            
+                <a href="../Bug/Ja_Finally_bug.html">
+            
+                    
+                    JAVA finally中异常的BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Bug/Ja_FutureException_bug.html">
+            
+                <a href="../Bug/Ja_FutureException_bug.html">
+            
+                    
+                    JAVA 线程池提交后异常被吞掉
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../Bug/Ja_JsonPrase_bug.html">
+            
+                <a href="../Bug/Ja_JsonPrase_bug.html">
+            
+                    
+                    JAVA JSON序列化类型发生变化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../Bug/Ja_Parallel_bug.html">
+            
+                <a href="../Bug/Ja_Parallel_bug.html">
+            
+                    
+                    JAVA 并行流处理引起的BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../Bug/Ja_Refelection_bug.html">
+            
+                <a href="../Bug/Ja_Refelection_bug.html">
+            
+                    
+                    JAVA 反射遇到重载方法产生的BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../Bug/Ja_SearchInvalidCatch.html">
+            
+                <a href="../Bug/Ja_SearchInvalidCatch.html">
+            
+                    
+                    JAVA 检索不规范的catch代码块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../Bug/Ja_SearchTextInFiles.html">
+            
+                <a href="../Bug/Ja_SearchTextInFiles.html">
+            
+                    
+                    JAVA 搜索指定文件的内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../Bug/SprTracking.html">
+            
+                <a href="../Bug/SprTracking.html">
+            
+                    
+                    打印方法调用栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../Bug/Ja_YYYY_bug.html">
+            
+                <a href="../Bug/Ja_YYYY_bug.html">
+            
+                    
+                    JAVA 日期格式化BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../Bug/Ms_TimeStamp_bug.html">
+            
+                <a href="../Bug/Ms_TimeStamp_bug.html">
+            
+                    
+                    MYSQL 时间戳BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../Bug/Ni_Header_bug.html">
+            
+                <a href="../Bug/Ni_Header_bug.html">
+            
+                    
+                    nginx header下划线BUG
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    JAVA笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    GC
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java/gc/gcLog.html">
+            
+                <a href="../java/gc/gcLog.html">
+            
+                    
+                    GC日志解读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../java/gc/AccessibleObject.html">
+            
+                <a href="../java/gc/AccessibleObject.html">
+            
+                    
+                    Gc可达对象分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../java/gc/Overhead.html">
+            
+                <a href="../java/gc/Overhead.html">
+            
+                    
+                    GC overhead limit exceeded异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../java/gc/FullGC_01.html">
+            
+                <a href="../java/gc/FullGC_01.html">
+            
+                    
+                    FullGC案例01
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    JVM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java/jvm/Java8MemoryModel.html">
+            
+                <a href="../java/jvm/Java8MemoryModel.html">
+            
+                    
+                    Java8 内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../java/jvm/JvmObjectAllocation.html">
+            
+                <a href="../java/jvm/JvmObjectAllocation.html">
+            
+                    
+                    JVM对象分配过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../java/gc/OutHeapError.html">
+            
+                <a href="../java/gc/OutHeapError.html">
+            
+                    
+                    JVM堆外内存泄漏故障排查示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../java/spring/RequestContextHolder.html">
+            
+                <a href="../java/spring/RequestContextHolder.html">
+            
+                    
+                    RequestContextHolder应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../java/CodeOpt/ConvertOpt/demo001.html">
+            
+                <a href="../java/CodeOpt/ConvertOpt/demo001.html">
+            
+                    
+                    convert转换器优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../java/CodeOpt/SprLock/SprLock.html">
+            
+                <a href="../java/CodeOpt/SprLock/SprLock.html">
+            
+                    
+                    分布式锁实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../java/CodeOpt/Spi/spi.html">
+            
+                <a href="../java/CodeOpt/Spi/spi.html">
+            
+                    
+                    spi机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../java/CodeOpt/RunAnnotation/runanno.html">
+            
+                <a href="../java/CodeOpt/RunAnnotation/runanno.html">
+            
+                    
+                    运行Java注释里的代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../java/CodeOpt/scheduler/handleScheduler.md">
+            
+                <span>
+            
+                    
+                    随开随停的定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../java/CodeOpt/ArrayUtil.html">
+            
+                <a href="../java/CodeOpt/ArrayUtil.html">
+            
+                    
+                    数组拆分实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../java/CodeOpt/Basic/genericAndQuestion.html">
+            
+                <a href="../java/CodeOpt/Basic/genericAndQuestion.html">
+            
+                    
+                    泛型和通配符区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../java/CodeOpt/DesignPattern/HalfDecorateHalfProxy.html">
+            
+                <a href="../java/CodeOpt/DesignPattern/HalfDecorateHalfProxy.html">
+            
+                    
+                    半装饰器半代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../java/CodeOpt/falsesharing/CacheLine.html">
+            
+                <a href="../java/CodeOpt/falsesharing/CacheLine.html">
+            
+                    
+                    CPU缓存行的作用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../java/CodeOpt/falsesharing/falsesharing.html">
+            
+                <a href="../java/CodeOpt/falsesharing/falsesharing.html">
+            
+                    
+                    伪共享缓存和解决办法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../java/CodeOpt/ObjectBuilder/ObjectBuilder.html">
+            
+                <a href="../java/CodeOpt/ObjectBuilder/ObjectBuilder.html">
+            
+                    
+                    通用对象构造器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../java/CodeOpt/scheduler/scheduler.html">
+            
+                <a href="../java/CodeOpt/scheduler/scheduler.html">
+            
+                    
+                    添加响应中断的定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../java/CodeOpt/future/future_bug.html">
+            
+                <a href="../java/CodeOpt/future/future_bug.html">
+            
+                    
+                    CompletableFuture不能中断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="../java/CodeOpt/SprMenuUtil.html">
+            
+                <a href="../java/CodeOpt/SprMenuUtil.html">
+            
+                    
+                    创建多级菜单数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="../java/CodeOpt/ZeroCopy.html">
+            
+                <a href="../java/CodeOpt/ZeroCopy.html">
+            
+                    
+                    零拷贝文件存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Mysql札记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../mysql/SqlOpt/SqlOpt001/SqlOptimise_001.html">
+            
+                <a href="../mysql/SqlOpt/SqlOpt001/SqlOptimise_001.html">
+            
+                    
+                    Sql优化01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../mysql/SqlOpt/SqlOpt001/SqlOptimise_001_answer.html">
+            
+                <a href="../mysql/SqlOpt/SqlOpt001/SqlOptimise_001_answer.html">
+            
+                    
+                    Sql优化01答案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../mysql/SqlOpt/TopN/TopN.html">
+            
+                <a href="../mysql/SqlOpt/TopN/TopN.html">
+            
+                    
+                    TopN问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../mysql/BackUp/TableSpaceBackUp.html">
+            
+                <a href="../mysql/BackUp/TableSpaceBackUp.html">
+            
+                    
+                    表空间和数据转储
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../web/browser.html">
+            
+                <a href="../web/browser.html">
+            
+                    
+                    浏览器机制解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../web/wechat.html">
+            
+                <a href="../web/wechat.html">
+            
+                    
+                    微信公众号
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    线上故障
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="closewait.html">
+            
+                <a href="closewait.html">
+            
+                    
+                    服务器无响应
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="jstackdeadlock.html">
+            
+                <a href="jstackdeadlock.html">
+            
+                    
+                    用jstack排查死锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="jstackusage.html">
+            
+                <a href="jstackusage.html">
+            
+                    
+                    排查CPU使用率过高
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Redis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../redis/performance/saveUserTest.html">
+            
+                <a href="../redis/performance/saveUserTest.html">
+            
+                    
+                    Redis性能测试:保存用户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../memory/Ebbinghaus.html">
+            
+                <a href="../memory/Ebbinghaus.html">
+            
+                    
+                    艾宾浩斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >排查CPU使用率过高</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6392;&#x67E5;cpu&#x4F7F;&#x7528;&#x7387;&#x8FC7;&#x9AD8;">&#x6392;&#x67E5;CPU&#x4F7F;&#x7528;&#x7387;&#x8FC7;&#x9AD8;</h1>
+<p><code>Author:zxu</code></p>
+<h3 id="&#x51C6;&#x5907;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;">&#x51C6;&#x5907;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;</h3>
+<h4 id="&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;">&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;</h4>
+<pre><code class="lang-java">
+<span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;
+<span class="hljs-keyword">import</span> java.util.concurrent.Executors;
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JstackCase</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ExecutorService executorService = Executors.newFixedThreadPool(<span class="hljs-number">5</span>);
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object lock = <span class="hljs-keyword">new</span> Object();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        MyTask myTask1 = <span class="hljs-keyword">new</span> MyTask();
+        MyTask myTask2 = <span class="hljs-keyword">new</span> MyTask();
+        executorService.execute(myTask1);
+        executorService.execute(myTask2);
+    }
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTask</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">synchronized</span> (lock) {
+                <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0L</span>;
+                <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+                    sum += <span class="hljs-number">1</span>;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h4 id="&#x6A21;&#x62DF;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;">&#x6A21;&#x62DF;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;</h4>
+<pre><code>cd /test
+mkdir -p mydemo/bin/classes
+mkdir -p mydemo/src/com/test
+-- &#x5C06;java&#x6587;&#x4EF6;&#x653E;&#x5230;test&#x6587;&#x4EF6;&#x5939;&#x4E0B;,&#x7565;
+javac mydemo/src/com/test/JstackCase.java -d mydemo/bin/classes/
+java -cp mydemo/bin/classes com.test.JstackCase &amp;
+</code></pre><h4 id="&#x6392;&#x67E5;&#x95EE;&#x9898;&#x6267;&#x884C;top&#x547D;&#x4EE4;">&#x6392;&#x67E5;&#x95EE;&#x9898;,&#x6267;&#x884C;TOP&#x547D;&#x4EE4;</h4>
+<p>&#x53D1;&#x73B0;&#x8FDB;&#x7A0B;19161&#x5360;&#x7528;&#x6700;&#x591A;&#x7684;CPU&#x8D44;&#x6E90;</p>
+<pre><code>[root@test test]# top
+top - 20:21:54 up 9 days,  9:24,  1 user,  load average: 1.21, 0.90, 0.78
+Tasks: 160 total,   1 running,  88 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 26.5 us,  1.6 sy,  0.0 ni, 71.9 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem :  8047020 total,   911344 free,  2589760 used,  4545916 buff/cache
+KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999284 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                             
+19161 root      20   0 4622036  27576  15756 S 100.0  0.3   5:14.46 java                                                
+ 1482 root      20   0  121116   8548   2804 S   2.0  0.1 253:59.94 phdaemon                                            
+   10 root      20   0       0      0      0 I   0.3  0.0   6:22.63 rcu_sched
+</code></pre><p>&#x901A;&#x8FC7;top -Hp 19161&#x67E5;&#x770B;&#x8BE5;&#x8FDB;&#x7A0B;&#x4E0B;&#x5404;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;CPU&#x4F7F;&#x7528;&#x60C5;&#x51B5;,&#x53D1;&#x73B0;pid&#x4E3A;19176&#x7684;&#x7EBF;&#x7A0B;&#x5360;&#x7528;&#x6700;&#x591A;&#x7684;CPU&#x8D44;&#x6E90;</p>
+<pre><code>[root@test test]# top -Hp 19161
+top - 20:23:33 up 9 days,  9:25,  1 user,  load average: 1.04, 0.94, 0.80
+Threads:  17 total,   1 running,  16 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 24.6 us,  1.6 sy,  0.0 ni, 73.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  8047020 total,   911996 free,  2589080 used,  4545944 buff/cache
+KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999964 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                              
+19176 root      20   0 4622036  27576  15756 R 99.9  0.3   6:52.83 java                                                 
+19161 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
+19162 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.04 java                                                 
+19163 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
+19164 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
+19165 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
+19166 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java
+</code></pre><h4 id="&#x4F7F;&#x7528;jstack-pid&#x67E5;&#x770B;19176&#x8FDB;&#x7A0B;&#x7684;&#x5806;&#x6808;&#x72B6;&#x6001;">&#x4F7F;&#x7528;jstack pid&#x67E5;&#x770B;19176&#x8FDB;&#x7A0B;&#x7684;&#x5806;&#x6808;&#x72B6;&#x6001;</h4>
+<pre><code>[root@test test]# jstack 19176
+2020-12-03 20:26:11
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode):
+
+&quot;DestroyJavaVM&quot; #11 prio=5 os_prio=0 tid=0x00007f5d80009000 nid=0x4ada waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;pool-1-thread-2&quot; #10 prio=5 os_prio=0 tid=0x00007f5d800f9800 nid=0x4ae9 waiting for monitor entry [0x00007f5d706f5000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+    at com.test.JstackCase$MyTask.run(JstackCase.java:19)
+    - waiting to lock &lt;0x00000000d715c208&gt; (a java.lang.Object)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    at java.lang.Thread.run(Thread.java:748)
+
+&quot;pool-1-thread-1&quot; #9 prio=5 os_prio=0 tid=0x00007f5d800f8000 nid=0x4ae8 runnable [0x00007f5d707f6000]
+   java.lang.Thread.State: RUNNABLE
+    at com.test.JstackCase$MyTask.run(JstackCase.java:21)
+    - locked &lt;0x00000000d715c208&gt; (a java.lang.Object)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    at java.lang.Thread.run(Thread.java:748)
+
+&quot;Service Thread&quot; #8 daemon prio=9 os_prio=0 tid=0x00007f5d800d0800 nid=0x4ae6 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;C1 CompilerThread2&quot; #7 daemon prio=9 os_prio=0 tid=0x00007f5d800bd000 nid=0x4ae5 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;C2 CompilerThread1&quot; #6 daemon prio=9 os_prio=0 tid=0x00007f5d800bb800 nid=0x4ae4 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;C2 CompilerThread0&quot; #5 daemon prio=9 os_prio=0 tid=0x00007f5d800b8800 nid=0x4ae3 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Signal Dispatcher&quot; #4 daemon prio=9 os_prio=0 tid=0x00007f5d800b6800 nid=0x4ae2 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+&quot;Finalizer&quot; #3 daemon prio=8 os_prio=0 tid=0x00007f5d80083800 nid=0x4ae1 in Object.wait() [0x00007f5d70efd000]
+   java.lang.Thread.State: WAITING (on object monitor)
+    at java.lang.Object.wait(Native Method)
+    - waiting on &lt;0x00000000d7108ed0&gt; (a java.lang.ref.ReferenceQueue$Lock)
+    at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+    - locked &lt;0x00000000d7108ed0&gt; (a java.lang.ref.ReferenceQueue$Lock)
+    at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
+    at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:216)
+
+&quot;Reference Handler&quot; #2 daemon prio=10 os_prio=0 tid=0x00007f5d80081000 nid=0x4ae0 in Object.wait() [0x00007f5d70ffe000]
+   java.lang.Thread.State: WAITING (on object monitor)
+    at java.lang.Object.wait(Native Method)
+    - waiting on &lt;0x00000000d7106bf8&gt; (a java.lang.ref.Reference$Lock)
+    at java.lang.Object.wait(Object.java:502)
+    at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+    - locked &lt;0x00000000d7106bf8&gt; (a java.lang.ref.Reference$Lock)
+    at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+&quot;VM Thread&quot; os_prio=0 tid=0x00007f5d80077800 nid=0x4adf runnable 
+
+&quot;GC task thread#0 (ParallelGC)&quot; os_prio=0 tid=0x00007f5d8001e800 nid=0x4adb runnable 
+
+&quot;GC task thread#1 (ParallelGC)&quot; os_prio=0 tid=0x00007f5d80020000 nid=0x4adc runnable 
+
+&quot;GC task thread#2 (ParallelGC)&quot; os_prio=0 tid=0x00007f5d80022000 nid=0x4add runnable 
+
+&quot;GC task thread#3 (ParallelGC)&quot; os_prio=0 tid=0x00007f5d80024000 nid=0x4ade runnable 
+
+&quot;VM Periodic Task Thread&quot; os_prio=0 tid=0x00007f5d800d5000 nid=0x4ae7 waiting on condition 
+
+JNI global references: 5
+
+Heap
+ PSYoungGen      total 36864K, used 1905K [0x00000000d7100000, 0x00000000d9a00000, 0x0000000100000000)
+  eden space 31744K, 6% used [0x00000000d7100000,0x00000000d72dc420,0x00000000d9000000)
+  from space 5120K, 0% used [0x00000000d9500000,0x00000000d9500000,0x00000000d9a00000)
+  to   space 5120K, 0% used [0x00000000d9000000,0x00000000d9000000,0x00000000d9500000)
+ ParOldGen       total 84992K, used 0K [0x0000000085200000, 0x000000008a500000, 0x00000000d7100000)
+  object space 84992K, 0% used [0x0000000085200000,0x0000000085200000,0x000000008a500000)
+ Metaspace       used 2653K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 287K, capacity 386K, committed 512K, reserved 1048576K
+</code></pre><p>&#x5C06;&#x5806;&#x6808;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x91CC;,&#x65B9;&#x4FBF;&#x5206;&#x6790;</p>
+<pre><code>[root@test test]# jstack -l 19161 &gt;log.txt
+</code></pre><h4 id="&#x5B9A;&#x4F4D;&#x4EE3;&#x7801;">&#x5B9A;&#x4F4D;&#x4EE3;&#x7801;</h4>
+<p>&#x5C06;&#x5360;&#x7528;CPU&#x8D44;&#x6E90;&#x6700;&#x591A;&#x7684;&#x7EBF;&#x7A0B;pid&#x8F6C;&#x6210;16&#x8FDB;&#x5236;,19176 -&gt; 4ae8<br>thread dump&#x4E2D;,&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x6709;&#x4E00;&#x4E2A;nid<br>&#x627E;&#x5230;4ae8&#x5BF9;&#x5E94;&#x7684;&#x7EBF;&#x7A0B;  &#x53D1;&#x73B0;&#x4E00;&#x76F4;&#x662F;RUNNABLE&#x72B6;&#x6001;,&#x5E76;&#x786E;&#x5B9A;&#x4EE3;&#x7801;&#x4F4D;&#x7F6E;JstackCase.java:21  </p>
+<pre><code>&quot;pool-1-thread-1&quot; #9 prio=5 os_prio=0 tid=0x00007f5d800f8000 nid=0x4ae8 runnable [0x00007f5d707f6000]
+   java.lang.Thread.State: RUNNABLE
+        at com.test.JstackCase$MyTask.run(JstackCase.java:21)
+        - locked &lt;0x00000000d715c208&gt; (a java.lang.Object)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+        - &lt;0x00000000d715da20&gt; (a java.util.concurrent.ThreadPoolExecutor$Worker)
+
+&quot;Service Thread&quot; #8 daemon prio=9 os_prio=0 tid=0x00007f5d800d0800 nid=0x4ae6 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+        - None
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="jstackdeadlock.html" class="navigation navigation-prev " aria-label="Previous page: 用jstack排查死锁">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../" class="navigation navigation-next " aria-label="Next page: Redis">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"排查CPU使用率过高","level":"1.6.3","depth":2,"next":{"title":"Redis","level":"1.7","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Redis性能测试:保存用户信息","level":"1.7.1","depth":2,"path":"redis/performance/saveUserTest.md","ref":"redis/performance/saveUserTest.md","articles":[]}]},"previous":{"title":"用jstack排查死锁","level":"1.6.2","depth":2,"path":"fault/jstackdeadlock.md","ref":"fault/jstackdeadlock.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fault/jstackusage.md","mtime":"2021-04-16T04:19:08.711Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-29T08:19:00.399Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

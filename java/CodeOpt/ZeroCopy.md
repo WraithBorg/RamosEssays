@@ -29,3 +29,24 @@ public Mono<Void> download (ServerHttpResponse response,@PathVariable String fil
     return zeroCopyResponse.writeWith(file, 0, file.length());
 }
 ```
+```
+需求一,客户点击导出Excel按钮,下载Excel
+难点,Excel文件很大,无论是生成Excel还是下载Excel都会影响CPU和内存
+
+自认为最完美的解决方案:
+1:生成Excel
+先在本地创建Excel,然程序生成数据写入到Excel,
+但是,不能一次性把所有数据都写入到Excel,要分批写入,
+每当内存中的数据超过20MB时(视具体情况而定,瞎写的),
+将内存中的数据写入到Excel中,然后清空内存数据,生成下一批数据,
+2:下载Excel
+此时服务器充当的就是一个Nginx的角色,一般来说就是读取文件流并将文件流返回给浏览器,
+但是完全不必这样做,因为这样会影响CPU和内存,
+可以采用nginx的方式,利用零拷贝原理下载文件,
+即CPU利用DMA控制器将数据从网络缓冲区拷贝到网卡进行数据传输
+
+利用easyexcel可以实现上述生成excel的功能,
+至于零拷贝下载文件,java有现成的方法
+ZeroCopyHttpOutputMessage zeroCopyResponse = (ZeroCopyHttpOutputMessage) response;
+zeroCopyResponse.writeWith(file, 0, file.length());
+```

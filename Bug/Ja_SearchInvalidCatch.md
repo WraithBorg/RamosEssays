@@ -1,9 +1,9 @@
 # 检索不规范的catch代码块
-`Author:zxu`  
+`Author:zxu`
 **使用场景:**
-> 当发生空指针异常时,后端没有输出异常信息,而直接将e.getMessage返回给前端  
-  这样,前端无法显示异常信息,后端日志也找不到异常信息  
-  所以会造成无法定位代码异常的情况,导致线上程序难以维护  
+> 当发生空指针异常时,后端没有输出异常信息,而直接将e.getMessage返回给前端
+  这样,前端无法显示异常信息,后端日志也找不到异常信息
+  所以会造成无法定位代码异常的情况,导致线上程序难以维护
 
 #### 代码示例
 ```java
@@ -30,7 +30,7 @@ public class SearchInvalidCatch {
      */
     public static void main(String[] args) {
 //        applicableScope();//错误代码演示
-        toDoSearch( "C:\\zxu_gitspace\\cldpoint\\src\\com");//查找该路径下的错误代码
+        toDoSearch( "C:\\zxu_gitspace\\sprdemo\\src\\com");//查找该路径下的错误代码
         System.out.println("共检索不规范代码:" + atomicInteger.get() + "处");
     }
     /**
