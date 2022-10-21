@@ -1,5 +1,5 @@
 # 运行Java注释里的代码
-`Author:zxu`  
+`Author:zxu`
 ```java
 class Test{
     public static void main(String[] args) {

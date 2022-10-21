@@ -1,5 +1,5 @@
 # 分布式锁的实现
-`Author:zxu`  
+`Author:zxu`
 > 利用redis实现全局锁,利用try-with-resource简化了加锁解锁的操作
 
 ## 代码简介
@@ -23,7 +23,7 @@ public class BillController {
 #### 全局锁代码
 ```java
 /**
- * 全局锁
+ * 简化全局锁 不支持分布式可重入锁
  */
 public class SprLock implements AutoCloseable {
     private List<String> lockedBillIds = new ArrayList<>();

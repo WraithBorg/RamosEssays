@@ -12,13 +12,15 @@
 ```
 
 ## 利用正则查找不规范代码
-####  查找没有规定小数精度的divide方法,避免小数除不尽的bug	(发现两处)	 
+####  查找没有规定小数精度的divide方法,避免小数除不尽的bug	(发现两处)
 ```regexp
-// Regex divide\(.+\..+\(\)\)  
+// Regex divide\(.+\..+\(\)\)
 × tPrice=sdt.x().divide(sdt.x()).setScale(4, BigDecimal.ROUND_HALF_UP);
 √ tPrice=sdt.x().divide(sdt.x(), 4, BigDecimal.ROUND_HALF_UP));
+√ .divide(hsysMain,InitBean.getDecimalDigits())
+√ dtNum.divide(sdt.getBusUnitRatio(), BigDecimal.ROUND_HALF_UP, InitBean.getDecimalDigits())
 ```
-#### 查找有精度损失的BigDecimal	 (发现三处)
+#### 查找有精度损失的 BigDecimal	 (发现三处)
 ```regexp
 BigDecimal\([0-9]+\.
 System.out.println(new BigDecimal(0.01));

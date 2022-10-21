@@ -3,7 +3,7 @@
 ### 准备测试环境
 #### 测试代码
 ```java
-
+package com.test;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 public class JstackCase {
@@ -45,12 +45,12 @@ top - 20:21:54 up 9 days,  9:24,  1 user,  load average: 1.21, 0.90, 0.78
 Tasks: 160 total,   1 running,  88 sleeping,   0 stopped,   0 zombie
 %Cpu(s): 26.5 us,  1.6 sy,  0.0 ni, 71.9 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
 KiB Mem :  8047020 total,   911344 free,  2589760 used,  4545916 buff/cache
-KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999284 avail Mem 
+KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999284 avail Mem
 
-  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                             
-19161 root      20   0 4622036  27576  15756 S 100.0  0.3   5:14.46 java                                                
- 1482 root      20   0  121116   8548   2804 S   2.0  0.1 253:59.94 phdaemon                                            
-   10 root      20   0       0      0      0 I   0.3  0.0   6:22.63 rcu_sched   
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+19161 root      20   0 4622036  27576  15756 S 100.0  0.3   5:14.46 java
+ 1482 root      20   0  121116   8548   2804 S   2.0  0.1 253:59.94 phdaemon
+   10 root      20   0       0      0      0 I   0.3  0.0   6:22.63 rcu_sched
 ```
 通过top -Hp 19161查看该进程下各个线程的CPU使用情况,发现pid为19176的线程占用最多的CPU资源
 ```
@@ -59,16 +59,16 @@ top - 20:23:33 up 9 days,  9:25,  1 user,  load average: 1.04, 0.94, 0.80
 Threads:  17 total,   1 running,  16 sleeping,   0 stopped,   0 zombie
 %Cpu(s): 24.6 us,  1.6 sy,  0.0 ni, 73.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 KiB Mem :  8047020 total,   911996 free,  2589080 used,  4545944 buff/cache
-KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999964 avail Mem 
+KiB Swap:  8126460 total,  8125424 free,     1036 used.  4999964 avail Mem
 
-  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                              
-19176 root      20   0 4622036  27576  15756 R 99.9  0.3   6:52.83 java                                                 
-19161 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
-19162 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.04 java                                                 
-19163 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
-19164 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
-19165 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java                                                 
-19166 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java    
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+19176 root      20   0 4622036  27576  15756 R 99.9  0.3   6:52.83 java
+19161 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java
+19162 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.04 java
+19163 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java
+19164 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java
+19165 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java
+19166 root      20   0 4622036  27576  15756 S  0.0  0.3   0:00.00 java
 ```
 #### 使用jstack pid查看19176进程的堆栈状态
 ```
@@ -128,17 +128,17 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode):
 	- locked <0x00000000d7106bf8> (a java.lang.ref.Reference$Lock)
 	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
 
-"VM Thread" os_prio=0 tid=0x00007f5d80077800 nid=0x4adf runnable 
+"VM Thread" os_prio=0 tid=0x00007f5d80077800 nid=0x4adf runnable
 
-"GC task thread#0 (ParallelGC)" os_prio=0 tid=0x00007f5d8001e800 nid=0x4adb runnable 
+"GC task thread#0 (ParallelGC)" os_prio=0 tid=0x00007f5d8001e800 nid=0x4adb runnable
 
-"GC task thread#1 (ParallelGC)" os_prio=0 tid=0x00007f5d80020000 nid=0x4adc runnable 
+"GC task thread#1 (ParallelGC)" os_prio=0 tid=0x00007f5d80020000 nid=0x4adc runnable
 
-"GC task thread#2 (ParallelGC)" os_prio=0 tid=0x00007f5d80022000 nid=0x4add runnable 
+"GC task thread#2 (ParallelGC)" os_prio=0 tid=0x00007f5d80022000 nid=0x4add runnable
 
-"GC task thread#3 (ParallelGC)" os_prio=0 tid=0x00007f5d80024000 nid=0x4ade runnable 
+"GC task thread#3 (ParallelGC)" os_prio=0 tid=0x00007f5d80024000 nid=0x4ade runnable
 
-"VM Periodic Task Thread" os_prio=0 tid=0x00007f5d800d5000 nid=0x4ae7 waiting on condition 
+"VM Periodic Task Thread" os_prio=0 tid=0x00007f5d800d5000 nid=0x4ae7 waiting on condition
 
 JNI global references: 5
 
@@ -158,9 +158,9 @@ Heap
 [root@test test]# jstack -l 19161 >log.txt
 ```
 #### 定位代码
-将占用CPU资源最多的线程pid转成16进制,19176 -> 4ae8  
-thread dump中,每个线程都有一个nid  
-找到4ae8对应的线程  发现一直是RUNNABLE状态,并确定代码位置JstackCase.java:21  
+将占用CPU资源最多的线程pid转成16进制,19176 -> 4ae8
+thread dump中,每个线程都有一个nid
+找到4ae8对应的线程  发现一直是RUNNABLE状态,并确定代码位置JstackCase.java:21
 ```
 "pool-1-thread-1" #9 prio=5 os_prio=0 tid=0x00007f5d800f8000 nid=0x4ae8 runnable [0x00007f5d707f6000]
    java.lang.Thread.State: RUNNABLE

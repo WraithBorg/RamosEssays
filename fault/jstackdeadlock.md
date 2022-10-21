@@ -1,9 +1,10 @@
 # 用jstack排查死锁
-`Author:zxu`   
+`Author:zxu`
 
-死锁是指两个或两个以上的线程在执行过程中,因争夺资源而造成的一种互相等待的现象  
+死锁是指两个或两个以上的线程在执行过程中,因争夺资源而造成的一种互相等待的现象
 #### 死锁代码
 ```java
+package com.test;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 public class DeathLockTest {
@@ -167,17 +168,17 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode):
    Locked ownable synchronizers:
 	- None
 
-"VM Thread" os_prio=0 tid=0x00007f2e90077800 nid=0x15a9 runnable 
+"VM Thread" os_prio=0 tid=0x00007f2e90077800 nid=0x15a9 runnable
 
-"GC task thread#0 (ParallelGC)" os_prio=0 tid=0x00007f2e9001e800 nid=0x15a5 runnable 
+"GC task thread#0 (ParallelGC)" os_prio=0 tid=0x00007f2e9001e800 nid=0x15a5 runnable
 
-"GC task thread#1 (ParallelGC)" os_prio=0 tid=0x00007f2e90020000 nid=0x15a6 runnable 
+"GC task thread#1 (ParallelGC)" os_prio=0 tid=0x00007f2e90020000 nid=0x15a6 runnable
 
-"GC task thread#2 (ParallelGC)" os_prio=0 tid=0x00007f2e90022000 nid=0x15a7 runnable 
+"GC task thread#2 (ParallelGC)" os_prio=0 tid=0x00007f2e90022000 nid=0x15a7 runnable
 
-"GC task thread#3 (ParallelGC)" os_prio=0 tid=0x00007f2e90024000 nid=0x15a8 runnable 
+"GC task thread#3 (ParallelGC)" os_prio=0 tid=0x00007f2e90024000 nid=0x15a8 runnable
 
-"VM Periodic Task Thread" os_prio=0 tid=0x00007f2e900cd000 nid=0x15b1 waiting on condition 
+"VM Periodic Task Thread" os_prio=0 tid=0x00007f2e900cd000 nid=0x15b1 waiting on condition
 
 JNI global references: 310
 
@@ -221,8 +222,8 @@ Java stack information for the threads listed above:
 Found 1 deadlock.
 
 ```
-#### 发现一处死锁,  
-"THE SECOND"线程等待锁0x000000076b6aedc0,这个锁由"THE FIRST"线程持有,  
+#### 发现一处死锁,
+"THE SECOND"线程等待锁0x000000076b6aedc0,这个锁由"THE FIRST"线程持有,
 "THE FIRST"线程等待锁"0x000000076b6aedf0",这个锁由"THE SECOND"线程持有
 ```
 Found one Java-level deadlock:
